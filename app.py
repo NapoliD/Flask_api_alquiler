@@ -16,7 +16,7 @@ def predict():
     int_features = [int(x) for x in request.form.values()]
     final_features = [np.array(int_features)]
     final_features = pd.DataFrame(final_features)
-    final_features.columns = ['barrio_cat', 'ambientes']
+    final_features.columns = ['barrio_cat', 'ambientes', 'm2']
     prediction = model.predict(final_features)
 
     output = prediction
