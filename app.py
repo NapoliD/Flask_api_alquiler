@@ -18,7 +18,8 @@ def predict():
     final_features = [np.array(int_features)]
     prediction = model.predict(final_features)
 
-    output = int(prediction)
+
+    output = int(np.where(prediction>0,prediction,0))
 
     return render_template('index.html', prediction_text='Alquiler estimado $ {}'.format(output))
 
