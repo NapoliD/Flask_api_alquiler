@@ -12,7 +12,9 @@ def home():
 
 @app.route('/predict',methods=['POST'])
 def predict():
-
+    '''
+    For rendering results on HTML GUI
+    '''
     int_features = [int(x) for x in request.form.values()]
     final_features = [np.array(int_features)]
     final_features = pd.DataFrame(final_features)
@@ -21,18 +23,8 @@ def predict():
 
     output = prediction
 
-    return render_template('index.html', prediction_text='Alquiler estimado $ {}'.format(int(output)))
-'''
-@app.route('/results',methods=['POST'])
-def results():
+    return render_template('index.html', prediction_text='Employee Salary should be $ {}'.format(output))
 
-    data = request.get_json(force=True)
-    data = pd.DataFrame.from_dict(data)
 
-    prediction = model.predict(data)
-
-    output = prediction[0]
-    return jsonify(output)
-'''
 if __name__ == "__main__":
     app.run(debug=True)
