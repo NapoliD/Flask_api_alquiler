@@ -4,7 +4,7 @@ import pickle
 import pandas as pd
 
 app = Flask(__name__)
-model = pickle.load(open('XGB_Alquiler.sav', 'rb'))
+model = pickle.load(open('model.pkl', 'rb'))
 
 @app.route('/')
 def home():
@@ -23,8 +23,7 @@ def predict():
 
     output = prediction
 
-    return render_template('index.html', prediction_text='Employee Salary should be $ {}'.format(output))
-
+    return render_template('index.html', prediction_text='Alquiler estimado $ {}'.format(int(output)))
 
 if __name__ == "__main__":
     app.run(debug=True)
