@@ -18,9 +18,9 @@ def predict():
     final_features = [np.array(int_features)]
     prediction = model.predict(final_features)
 
-    output = round(prediction[0], 2)
+    output = int(prediction)
 
-    return render_template('index.html', prediction_text='Employee Salary should be $ {}'.format(output))
+    return render_template('index.html', prediction_text='Alquiler estimado $ {}'.format(output))
 
 
 if __name__ == "__main__":
