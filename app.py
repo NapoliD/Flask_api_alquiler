@@ -22,7 +22,7 @@ def predict():
     output = prediction
 
     return render_template('index.html', prediction_text='Alquiler estimado $ {}'.format(int(output)))
-
+'''
 @app.route('/results',methods=['POST'])
 def results():
 
@@ -33,6 +33,6 @@ def results():
 
     output = prediction[0]
     return jsonify(output)
-
+'''
 if __name__ == "__main__":
     app.run(debug=True)
