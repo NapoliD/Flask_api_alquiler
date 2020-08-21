@@ -1,7 +1,6 @@
 import numpy as np
 from flask import Flask, request, jsonify, render_template
 import pickle
-import pandas as pd
 
 app = Flask(__name__)
 model = pickle.load(open('model.pkl', 'rb'))
@@ -17,13 +16,12 @@ def predict():
     '''
     int_features = [int(x) for x in request.form.values()]
     final_features = [np.array(int_features)]
-    final_features = pd.DataFrame(final_features)
-    final_features.columns = ['barrio_cat', 'ambientes', 'm2']
     prediction = model.predict(final_features)
 
-    output = prediction
+    output = round(prediction[0], 2)
 
-    return render_template('index.html', prediction_text='Alquiler estimado $ {}'.format(int(output)))
+    return render_template('index.html', prediction_text='Employee Salary should be $ {}'.format(output))
+
 
 if __name__ == "__main__":
     app.run(debug=True)
