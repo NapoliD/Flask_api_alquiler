@@ -8,12 +8,13 @@
 <link href='https://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'>
 <link href='https://fonts.googleapis.com/css?family=Hind:300' rel='stylesheet' type='text/css'>
 <link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
-  
+<link type="text/css" rel="stylesheet" href="{{ url_for('static', filename='./style.css') }}">
+ 
 </head>
 
 <body>
  <div class="login">
-	<h1>Predict Alquiler</h1>
+	<h1>Alquiler?</h1>
 
      <!-- Main Input For Receiving Query to our ML -->
     <form action="{{ url_for('predict')}}"method="post">
