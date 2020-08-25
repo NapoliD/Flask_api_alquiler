@@ -5,9 +5,10 @@ import pandas as pd
 
 app = Flask(__name__)
 
-model = pickle.load(open('model_lgb.pkl', 'rb'))
-'''
 model = pickle.load(open('model.pkl', 'rb'))
+'''
+model = pickle.load(open('model_lgb.pkl', 'rb'))
+
 model = pickle.load(open('model_xgb.pkl', 'rb'))
 cols = ['barrio_n','ambientes','m2']
 '''
