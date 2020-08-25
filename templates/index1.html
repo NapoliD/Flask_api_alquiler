@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html >
+<!--From https://codepen.io/frytyler/pen/EGdtg-->
+<head>
+  <meta charset="UTF-8">
+  <title>Alquiler?</title>
+  <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Hind:300' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+<link type="text/css" rel="stylesheet" href="{{ url_for('static', filename='./style.css') }}">
+ 
+</head>
+
+<body>
+ <div class="login">
+	<h1>Alquiler?</h1>
+
+     <!-- Main Input For Receiving Query to our ML -->
+    <form action="{{ url_for('predict')}}"method="post">
+    <!--<input type="text" name="Barrio" placeholder="Barrio" required="required" />-->
+    <select name="Barrio" size="4" required="required" multiple>
+      
+      <option value="0">Almagro	</option>
+      <option value="4">Agronomia</option>
+      <option value="5">Balvanera	</option>
+      <option value="0">Barracas	</option>
+      <option value="3">Belgrano	</option>
+      <option value="2">Agronomía	</option>
+      <option value="3">Almagro	</option>
+      <option value="3">Barracas	</option>
+      <option value="1">Boedo	</option>
+      <option value="2">Caballito	</option>
+      <option value="3">Chacarita	</option>
+      <option value="4">Coghlan	</option>
+      <option value="4">Colegiales	</option>
+      <option value="2">Constitución	</option>
+      <option value="2">Flores	</option>
+      <option value="1">Floresta	</option>
+      <option value="1">La Boca	</option>
+      <option value="1">La Paternal	</option>
+      <option value="2">Liniers	</option>
+      <option value="2">Mataderos	</option>
+      <option value="2">Monte Castro	</option>
+      <option value="3">Monserrat 	</option>
+      <option value="1">Nueva Pompeya	</option>
+      <option value="3">Núñez	</option>
+      <option value="6">Palermo	</option>
+      <option value="4">Parque Avellaneda	</option>
+      <option value="4">Parque Chacabuco	</option>
+      <option value="4">Parque Chas	</option>
+      <option value="4">Parque Patricios	</option>
+      <option value="7">Puerto Madero	</option>
+      <option value="7">Recoleta	</option>
+      <option value="2">Retiro	</option>
+      <option value="3">Saavedra	</option>
+      <option value="2">San Cristóbal	</option>
+      <option value="2">San Nicolás	</option>
+      <option value="3">San Telmo	</option>
+      <option value="2">Vélez Sársfield	</option>
+      <option value="2">Versalles	</option>
+      <option value="2">Villa Crespo	</option>
+      <option value="2">Villa del Parque	</option>
+      <option value="5">Villa Devoto	</option>
+      <option value="2">Villa General Mitre	</option>
+      <option value="2">Villa Lugano	</option>
+      <option value="2">Villa Luro	</option>
+      <option value="2">Villa Ortúzar	</option>
+      <option value="3">Villa Pueyrredón	</option>
+      <option value="1">Villa Real	</option>
+      <option value="1">Villa Riachuelo	</option>
+      <option value="1">Villa Santa Rita	</option>
+      <option value="1">Villa Soldati	</option>
+      <option value="7">Villa Urquiza	</option>
+
+     </select>
+
+    <input type="number" min = "1" name="Ambientes" placeholder="Ambientes" required="required" />
+		<input type="number" min = "10" name="M2" placeholder="M2" required="required" />
+
+        <button type="submit" class="btn btn-primary btn-block btn-large">Predict</button>
+    </form>
+
+   <br>
+   <br>
+   {{ prediction_text }}
+
+ </div>
+
+
+</body>
+</html>
