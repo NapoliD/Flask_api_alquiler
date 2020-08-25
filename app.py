@@ -4,8 +4,13 @@ import pickle
 import pandas as pd
 
 app = Flask(__name__)
+
+model = pickle.load(open('model_lgb.pkl', 'rb'))
+'''
 model = pickle.load(open('model.pkl', 'rb'))
+model = pickle.load(open('model_xgb.pkl', 'rb'))
 cols = ['barrio_n','ambientes','m2']
+'''
 
 @app.route('/')
 def home():
@@ -16,14 +21,17 @@ def predict():
     '''
     For rendering results on HTML GUI
     '''
+    '''
     int_features = [int(x) for x in request.form.values()]
     final_features = np.array(int_features)
     data_unseen = pd.DataFrame([final_features], columns = cols)
-
     prediction = model.predict(data=data_unseen)
-
     prediction = int(prediction[0])
-    '''prediction = model.predict(final_features)'''
+    '''
+    int_features = [int(x) for x in request.form.values()]
+    final_features = [np.array(int_features)]
+    prediction = model.predict(final_features)
+
 
     output = int(np.where(prediction>0,prediction,0))
 
