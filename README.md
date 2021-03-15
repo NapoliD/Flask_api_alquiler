@@ -15,5 +15,5 @@ This last example was done to show how simple it is to publish an API, how to sc
 
 The goal is: Training the model with 4 neighborhoods of CABA predict the "rental price" of the rest of the 44 neighborhoods, the independent variables are: *M2 *Bedrooms *Neighborhood.
 
-Translated with www.DeepL.com/Translator (free version)
+
 alquilar.herokuapp.com
